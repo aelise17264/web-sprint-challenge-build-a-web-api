@@ -1,5 +1,6 @@
 const express = require('express')
 const projectRouter = require('./routers/project-router')
+const actionRouter = require('./routers/action-router')
 const server = express()
 
 server.use(express.json())
@@ -12,6 +13,7 @@ function logger(req, res, next) {
 
 server.use(logger)
 server.use('/api/projects', projectRouter)
+server.use('/api/actions', actionRouter)
 
 server.get('/', (req, res) => {
 res.send(`<h2>Sprint Away!</h2>`);
